@@ -4,6 +4,16 @@ const c = canvas.getContext("2d");
 canvas.width = 1024;
 canvas.height = 576;
 
+
+
+const backgroundLevel1 = new Sprite({
+    position: {
+        x: 80,
+        y: 140
+    },
+    imageSrc: "./img/background_level_1.png"
+});
+
 const player = new Player();
 
 const keys = {
@@ -21,8 +31,10 @@ const keys = {
 function animate() {
     window.requestAnimationFrame(animate);
 
-    c.fillStyle = "grey"
+    c.fillStyle = "#3f3851"
     c.fillRect(0, 0, canvas.width, canvas.height);
+
+    backgroundLevel1.draw();
 
     player.velocity.x = 0;
     if (keys.d.pressed) 
